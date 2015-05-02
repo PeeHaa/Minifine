@@ -135,19 +135,18 @@ class Minifine
     /**
      * Combines and minifies CSS files
      *
-     * @param string[] $files     List of files to combine and minify
-     * @param string   $directory The output directory of the generated file
-     * @param string   $name      The name of the generated file
+     * @param string[] $files      List of files to combine and minify
+     * @param string   $outputFile The output filename (this is relative to the base path)
      *
      * @return string The HTML of the generated stylesheet tag(s)
      */
-    public function css(array $files, $directory, $name)
+    public function css(array $files, $outputFile)
     {
         if ($this->production) {
-            return '<link rel="stylesheet" href="' . $directory . '/' . $name . '">';
+            return '<link rel="stylesheet" href="' . $outputFile . '">';
         }
 
-        $this->minify($files, $directory, $name, $this->cssMinifiers);
+        $this->minify($files, $outputFile, $this->cssMinifiers);
 
         $stylesheets = [];
 
@@ -161,19 +160,18 @@ class Minifine
     /**
      * Combines and minifies JS files
      *
-     * @param string[] $files     List of files to combine and minify
-     * @param string   $directory The output directory of the generated file
-     * @param string   $name      The name of the generated file
+     * @param string[] $files      List of files to combine and minify
+     * @param string   $outputFile The output filename (this is relative to the base path)
      *
      * @return string The HTML of the generated stylesheet tag(s)
      */
-    public function js(array $files, $directory, $name)
+    public function js(array $files, $outputFile)
     {
         if ($this->production) {
-            return '<script src="' . $directory . '/' . $name . '"></script>';
+            return '<script src="' . $outputFile . '"></script>';
         }
 
-        $this->minify($files, $directory, $name, $this->jsMinifiers);
+        $this->minify($files, $outputFile, $this->jsMinifiers);
 
         $scripts = [];
 
@@ -188,12 +186,11 @@ class Minifine
      * Combines and minifies files
      *
      *
-     * @param string[] $files     List of files to combine and minify
-     * @param string   $directory The output directory of the generated file
-     * @param string   $name      The name of the generated file
-     * @param array    $minifiers The list of minifiers to run
+     * @param string[] $files      List of files to combine and minify
+     * @param string   $outputFile The output filename (this is relative to the base path)
+     * @param array    $minifiers  The list of minifiers to run
      */
-    private function minify($files, $directory, $name, array $minifiers)
+    private function minify($files, $outputFile, array $minifiers)
     {
         $content = $this->merge($files, $minifiers);
 
@@ -201,7 +198,7 @@ class Minifine
             $content = $minifier->minify($content);
         }
 
-        file_put_contents($this->basePath . $directory . '/' . $name, $content);
+        file_put_contents($this->basePath . $outputFile, $content);
     }
 
     /**
