@@ -9,7 +9,7 @@ php:
 before_script:
   - composer self-update
   - composer install
-  - pyrus install pear/PHP_CodeSniffer
+  - composer global require "squizlabs/php_codesniffer=*"
   - phpenv rehash
 
 script:
