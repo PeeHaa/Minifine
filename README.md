@@ -1,6 +1,6 @@
 # Minifine
 
-[![Build Status](https://travis-ci.org/PeeHaa/Minifine.svg)](https://travis-ci.org/PeeHaa/Minifine) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PeeHaa/Minifine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PeeHaa/Minifine/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/PeeHaa/Minifine/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/PeeHaa/Minifine/?branch=master)
+[![Build Status](https://travis-ci.org/PeeHaa/Minifine.svg)](https://travis-ci.org/PeeHaa/Minifine) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PeeHaa/Minifine/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PeeHaa/Minifine/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/PeeHaa/Minifine/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/PeeHaa/Minifine/?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/PeeHaa/Minifine/master/LICENSE)
 
 ## Installation
 
