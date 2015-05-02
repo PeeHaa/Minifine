@@ -98,13 +98,13 @@
                         <h2>Minifying javascript files</h2>
                         <p>Combining and minifying javascript files works basically the same as for stylesheets.</p>
                         <p>A typical block of javascript files in an HTML document will look something like below:</p>
-                        <pre><code>&lt;script src="/js/jquery-1.11.2.min.js"></script>
-&lt;script src="/js/bootstrap.min.js"></script>
-&lt;script src="/js/custom.js"></script></code></pre>
+                        <pre><code>&lt;script src="/js/jquery-1.11.2.min.js">&lt;/script>
+&lt;script src="/js/bootstrap.min.js">&lt;/script>
+&lt;script src="/js/custom.js">&lt;/script></code></pre>
                         <p>To use Minifine to combine and minify these javascript files simply use the following code:</p>
                         <pre><code>&lt;?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js', 'min.js'); ?></code></pre>
                         <p>Minifine will now combine and minify the three javascript files and the resuling HTML will (on production environments) look like:</p>
-                        <pre><code>&lt;script src="/js/min.js"></code></pre>
+                        <pre><code>&lt;script src="/js/min.js">&lt;/script></code></pre>
                         <p>The <code>Minifine\Minifine::js()</code> method used above accepts three parameters:</p>
                         <code>array $files</code>
                         <p>Contains a list of files that need to be combined and minified.</p>
