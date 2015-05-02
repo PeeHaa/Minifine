@@ -35,7 +35,7 @@
                         <li><a href="/minify-js-and-css-production.php">Production environment example</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://github.com/PeeHaa/Minifine" target="_blank"><span class="glyphicon glyphicon-cloud-download"></span></a></li>
+                        <li><a href="https://github.com/PeeHaa/Minifine" target="_blank"><span class="hidden-sm hidden-md hidden-lg">Project on GitHub </span><span class="glyphicon glyphicon-cloud-download"></span></a></li>
                     </ul>
                 </div>
             </div>
