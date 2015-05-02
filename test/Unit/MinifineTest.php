@@ -17,7 +17,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructorDevelopment()
     {
-        $this->assertInstanceOf('\\Minifine\\Minifine', new Minifine(TEST_DATA_DIR));
+        $this->assertInstanceOf('Minifine\\Minifine', new Minifine(TEST_DATA_DIR));
     }
 
     /**
@@ -25,7 +25,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructorProduction()
     {
-        $this->assertInstanceOf('\\Minifine\\Minifine', new Minifine(TEST_DATA_DIR, true));
+        $this->assertInstanceOf('Minifine\\Minifine', new Minifine(TEST_DATA_DIR, true));
     }
 
     /**
@@ -35,7 +35,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testAppendJsMinifier()
     {
-        $this->assertNull((new Minifine(TEST_DATA_DIR))->appendJsMinifier($this->getMock('\\Minifine\\Minifier\\Minifier')));
+        $minifier = new Minifine(TEST_DATA_DIR);
+
+        $this->assertNull($minifier->appendJsMinifier($this->getMock('Minifine\\Minifier\\Minifier')));
     }
 
     /**
@@ -45,7 +47,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testPrependJsMinifier()
     {
-        $this->assertNull((new Minifine(TEST_DATA_DIR))->prependJsMinifier($this->getMock('\\Minifine\\Minifier\\Minifier')));
+        $minifier = new Minifine(TEST_DATA_DIR);
+
+        $this->assertNull($minifier->prependJsMinifier($this->getMock('Minifine\\Minifier\\Minifier')));
     }
 
     /**
@@ -55,7 +59,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testAppendCssMinifier()
     {
-        $this->assertNull((new Minifine(TEST_DATA_DIR))->appendCssMinifier($this->getMock('\\Minifine\\Minifier\\Minifier')));
+        $minifier = new Minifine(TEST_DATA_DIR);
+
+        $this->assertNull($minifier->appendCssMinifier($this->getMock('Minifine\\Minifier\\Minifier')));
     }
 
     /**
@@ -65,7 +71,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testPrependCssMinifier()
     {
-        $this->assertNull((new Minifine(TEST_DATA_DIR))->prependCssMinifier($this->getMock('\\Minifine\\Minifier\\Minifier')));
+        $minifier = new Minifine(TEST_DATA_DIR);
+
+        $this->assertNull($minifier->prependCssMinifier($this->getMock('Minifine\\Minifier\\Minifier')));
     }
 
     /**
@@ -76,9 +84,11 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testCssProduction()
     {
+        $minifier = new Minifine(TEST_DATA_DIR);
+
         $this->assertSame(
             '<link rel="stylesheet" href="/css/test.css">',
-            (new Minifine(TEST_DATA_DIR, true))->css(['/css/boostrap.min.css', '/css/jquery.min.css', 'custom.css'], '/css', 'test.css')
+            $minifier->css(['/css/boostrap.min.css', '/css/jquery.min.css', 'custom.css'], '/css', 'test.css')
         );
     }
 
@@ -92,7 +102,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testCssDevelopment()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -104,7 +114,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendCssMinifier($minifierMock);
 
         $this->assertSame(
-            '<link rel="stylesheet" href="/css/bootstrap.min.css">' . "\n" . '<link rel="stylesheet" href="/css/jquery.min.css">' . "\n" . '<link rel="stylesheet" href="/css/custom.css">',
+            '<link rel="stylesheet" href="/css/bootstrap.min.css">'
+            . "\n" . '<link rel="stylesheet" href="/css/jquery.min.css">'
+            . "\n" . '<link rel="stylesheet" href="/css/custom.css">',
             $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css')
         );
 
@@ -121,7 +133,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testCssDevelopmentAppendedMinifier()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -129,7 +141,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             ->willReturn('minifiedcontent')
         ;
 
-        $appendedMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $appendedMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $appendedMock
             ->expects($this->once())
@@ -158,7 +170,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testCssDevelopmentPrependedMinifier()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -166,7 +178,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             ->willReturn('minifiedcontent')
         ;
 
-        $prependedMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $prependedMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $prependedMock
             ->expects($this->once())
@@ -207,7 +219,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsDevelopment()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -219,7 +231,9 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendJsMinifier($minifierMock);
 
         $this->assertSame(
-            '<script src="/js/bootstrap.min.js"></script>' . "\n" . '<script src="/js/jquery.min.js"></script>' . "\n" . '<script src="/js/main.js"></script>',
+            '<script src="/js/bootstrap.min.js"></script>'
+            . "\n" . '<script src="/js/jquery.min.js"></script>'
+            . "\n" . '<script src="/js/main.js"></script>',
             $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js')
         );
 
@@ -236,7 +250,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsDevelopmentAppendedMinifier()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -244,7 +258,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             ->willReturn('minifiedcontent')
         ;
 
-        $appendedMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $appendedMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $appendedMock
             ->expects($this->once())
@@ -273,7 +287,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsDevelopmentPrependedMinifier()
     {
-        $minifierMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $minifierMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $minifierMock
             ->expects($this->once())
@@ -281,7 +295,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             ->willReturn('minifiedcontent')
         ;
 
-        $prependedMock = $this->getMock('\\Minifine\\Minifier\\Minifier');
+        $prependedMock = $this->getMock('Minifine\\Minifier\\Minifier');
 
         $prependedMock
             ->expects($this->once())
