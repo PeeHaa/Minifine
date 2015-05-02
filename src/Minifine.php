@@ -188,10 +188,10 @@ class Minifine
      * Combines and minifies files
      *
      *
-     * @param array  $files     List of files to combine and minify
-     * @param string $directory The output directory of the generated file
-     * @param string $name      The name of the generated file
-     * @param array  $minifiers The list of minifiers to run
+     * @param string[] $files     List of files to combine and minify
+     * @param string   $directory The output directory of the generated file
+     * @param string   $name      The name of the generated file
+     * @param array    $minifiers The list of minifiers to run
      */
     private function minify($files, $directory, $name, array $minifiers)
     {
