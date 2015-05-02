@@ -22,40 +22,86 @@ use Minifine\Minifier\Minifier;
  */
 class Minifine
 {
+    /**
+     * @var string The base path of the resources
+     */
     private $basePath;
 
+    /**
+     * @var bool Whether we are running in production
+     */
     private $production = false;
 
+    /**
+     * @var array List of JS minifiers
+     */
     private $jsMinifiers = [];
 
+    /**
+     * @var array List of CSS minifiers
+     */
     private $cssMinifiers = [];
 
+    /**
+     * Creates instance
+     *
+     * @param string $basePath   The base path of the resources
+     * @param bool   $production Whether we are running in production
+     */
     public function __construct($basePath, $production = false)
     {
         $this->basePath   = $basePath;
         $this->production = $production;
     }
 
+    /**
+     * Appends a JS minifier to the chain
+     *
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     */
     public function appendJsMinifier(Minifier $minifier)
     {
         $this->append('js', $minifier);
     }
 
+    /**
+     * Prepends a JS minifier to the chain
+     *
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     */
     public function prependJsMinifier(Minifier $minifier)
     {
         $this->prepend('js', $minifier);
     }
 
+    /**
+     * Appends a CSS minifier to the chain
+     *
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     */
     public function appendCssMinifier(Minifier $minifier)
     {
         $this->append('css', $minifier);
     }
 
+    /**
+     * Prepends a CSS minifier to the chain
+     *
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     */
     public function prependCssMinifier(Minifier $minifier)
     {
         $this->prepend('css', $minifier);
     }
 
+    /**
+     * Appends a minifier to the chain
+     *
+     * @param string                      $type     The type of minifier to append
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     *
+     * @throws \Minifine\InvalidTypeException When trying to append an invalid type
+     */
     private function append($type, Minifier $minifier)
     {
         switch ($type) {
@@ -72,6 +118,14 @@ class Minifine
         }
     }
 
+    /**
+     * Prepends a minifier to the chain
+     *
+     * @param string                      $type     The type of minifier to append
+     * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
+     *
+     * @throws \Minifine\InvalidTypeException When trying to prepend an invalid type
+     */
     private function prepend($type, Minifier $minifier)
     {
         switch ($type) {
@@ -89,6 +143,15 @@ class Minifine
         }
     }
 
+    /**
+     * Combines and minifies CSS files
+     *
+     * @param array  $files     List of files to combine and minify
+     * @param string $directory The output directory of the generated file
+     * @param string $name      The name of the generated file
+     *
+     * @return string The HTML of the generated stylesheet tag(s)
+     */
     public function css(array $files, $directory, $name)
     {
         if ($this->production) {
@@ -106,6 +169,15 @@ class Minifine
         return implode("\n", $stylesheets);
     }
 
+    /**
+     * Combines and minifies JS files
+     *
+     * @param array  $files     List of files to combine and minify
+     * @param string $directory The output directory of the generated file
+     * @param string $name      The name of the generated file
+     *
+     * @return string The HTML of the generated stylesheet tag(s)
+     */
     public function js(array $files, $directory, $name)
     {
         if ($this->production) {
@@ -123,6 +195,15 @@ class Minifine
         return implode("\n", $scripts);
     }
 
+    /**
+     * Combines and minifies files
+     *
+     *
+     * @param array  $files     List of files to combine and minify
+     * @param string $directory The output directory of the generated file
+     * @param string $name      The name of the generated file
+     * @param array  $minifiers The list of minifiers to run
+     */
     private function minify($files, $directory, $name, array $minifiers)
     {
         $content = $this->merge($files, $minifiers);
@@ -134,6 +215,13 @@ class Minifine
         file_put_contents($this->basePath . $directory . '/' . $name, $content);
     }
 
+    /**
+     * Merges files
+     *
+     * @param array $files List of files to merge
+     *
+     * @return string The merged content
+     */
     private function merge(array $files)
     {
         $content = '';
