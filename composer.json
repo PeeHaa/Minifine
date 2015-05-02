@@ -1,0 +1,26 @@
+{
+    "name": "peehaa/minifine",
+    "description": "Minifier for web resources",
+    "keywords": ["minify", "uglify", "js", "css", "html"],
+    "version": "1.0.0",
+    "homepage": "https://github.com/PeeHaa/Minifine",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pieter Hordijk",
+            "email": "info@pieterhordijk.com",
+            "homepage": "https://pieterhordijk.com",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "matthiasmullie/minify": "1.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    },
+    "autoload": {
+        "psr-4": {"Minifine\\": "src/"}
+    }
+}
