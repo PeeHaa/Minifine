@@ -7,7 +7,6 @@
 Simply include this library into your projects using composer:
 
     "require": {
-        "php": ">=5.5",
         "peehaa/minifine": "1.0.*"
     },
 
