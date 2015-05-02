@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Minify JS and CSS (production) - Minifine examples</title>
-        <?= $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css', 'styles.min.css'); ?>
+        <?= $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css/styles.min.css'); ?>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -51,6 +51,6 @@
                 </div>
             </section>
         </div>
-        <?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js', 'main.min.js'); ?>
+        <?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js/main.min.js'); ?>
     </body>
 </html>
