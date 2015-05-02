@@ -25,7 +25,7 @@ interface Minifier
     /**
      * Minifies data
      *
-     * @param string $content The data to be minified
+     * @param string $data The data to be minified
      *
      * @return string The minified data
      */
