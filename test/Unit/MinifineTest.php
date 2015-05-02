@@ -84,11 +84,11 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
      */
     public function testCssProduction()
     {
-        $minifier = new Minifine(TEST_DATA_DIR);
+        $minifier = new Minifine(TEST_DATA_DIR, true);
 
         $this->assertSame(
             '<link rel="stylesheet" href="/css/test.css">',
-            $minifier->css(['/css/boostrap.min.css', '/css/jquery.min.css', 'custom.css'], '/css', 'test.css')
+            $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css')
         );
     }
 
