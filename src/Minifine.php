@@ -204,7 +204,7 @@ class Minifine
     /**
      * Merges files
      *
-     * @param array $files List of files to merge
+     * @param string[] $files List of files to merge
      *
      * @return string The merged content
      */
