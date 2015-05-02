@@ -88,7 +88,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(
             '<link rel="stylesheet" href="/css/test.css">',
-            $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css')
+            $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css/test.css')
         );
     }
 
@@ -117,7 +117,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             '<link rel="stylesheet" href="/css/bootstrap.min.css">'
             . "\n" . '<link rel="stylesheet" href="/css/jquery.min.css">'
             . "\n" . '<link rel="stylesheet" href="/css/custom.css">',
-            $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css')
+            $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css/test.css')
         );
 
         $this->assertSame('minifiedcontent', file_get_contents(TEST_DATA_DIR . '/css/test.css'));
@@ -153,7 +153,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendCssMinifier($minifierMock);
         $minifier->appendCssMinifier($appendedMock);
 
-        $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css');
+        $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css/test.css');
 
         $this->assertSame('appendedcontent', file_get_contents(TEST_DATA_DIR . '/css/test.css'));
     }
@@ -190,7 +190,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendCssMinifier($minifierMock);
         $minifier->prependCssMinifier($prependedMock);
 
-        $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css', 'test.css');
+        $minifier->css(['/css/bootstrap.min.css', '/css/jquery.min.css', '/css/custom.css'], '/css/test.css');
 
         $this->assertSame('minifiedcontent', file_get_contents(TEST_DATA_DIR . '/css/test.css'));
     }
@@ -205,7 +205,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame(
             '<script src="/js/test.js"></script>',
-            (new Minifine(TEST_DATA_DIR, true))->js(['/js/boostrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js')
+            (new Minifine(TEST_DATA_DIR, true))->js(['/js/boostrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js/test.js')
         );
     }
 
@@ -234,7 +234,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
             '<script src="/js/bootstrap.min.js"></script>'
             . "\n" . '<script src="/js/jquery.min.js"></script>'
             . "\n" . '<script src="/js/main.js"></script>',
-            $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js')
+            $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js/test.js')
         );
 
         $this->assertSame('minifiedcontent', file_get_contents(TEST_DATA_DIR . '/js/test.js'));
@@ -270,7 +270,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendJsMinifier($minifierMock);
         $minifier->appendJsMinifier($appendedMock);
 
-        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js');
+        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js/test.js');
 
         $this->assertSame('appendedcontent', file_get_contents(TEST_DATA_DIR . '/js/test.js'));
     }
@@ -307,7 +307,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
         $minifier->appendJsMinifier($minifierMock);
         $minifier->prependJsMinifier($prependedMock);
 
-        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js');
+        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js/test.js');
 
         $this->assertSame('minifiedcontent', file_get_contents(TEST_DATA_DIR . '/js/test.js'));
     }
@@ -322,7 +322,7 @@ class MinifineTest extends \PHPUnit_Framework_TestCase
     {
         $minifier = new Minifine(TEST_DATA_DIR);
 
-        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js', 'test.js');
+        $minifier->js(['/js/bootstrap.min.js', '/js/jquery.min.js', '/js/main.js'], '/js/test.js');
 
         $this->assertSame('|bootstrap||jquery||main|', file_get_contents(TEST_DATA_DIR . '/js/test.js'));
     }
