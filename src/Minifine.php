@@ -135,9 +135,9 @@ class Minifine
     /**
      * Combines and minifies CSS files
      *
-     * @param array  $files     List of files to combine and minify
-     * @param string $directory The output directory of the generated file
-     * @param string $name      The name of the generated file
+     * @param string[] $files     List of files to combine and minify
+     * @param string   $directory The output directory of the generated file
+     * @param string   $name      The name of the generated file
      *
      * @return string The HTML of the generated stylesheet tag(s)
      */
@@ -161,9 +161,9 @@ class Minifine
     /**
      * Combines and minifies JS files
      *
-     * @param array  $files     List of files to combine and minify
-     * @param string $directory The output directory of the generated file
-     * @param string $name      The name of the generated file
+     * @param string[] $files     List of files to combine and minify
+     * @param string   $directory The output directory of the generated file
+     * @param string   $name      The name of the generated file
      *
      * @return string The HTML of the generated stylesheet tag(s)
      */
