@@ -74,7 +74,7 @@
                         <pre><code>&lt;head>
     &lt;meta charset="UTF-8">
     &lt;title>Page title&lt;/title>
-    &lt;?= $minifier->css(['/css/bootstrap.min.css', '/css/jquery.ui.min.css', '/css/theme.css', '/css/custom.css'], '/css', 'min.css'); ?>
+    &lt;?= $minifier->css(['/css/bootstrap.min.css', '/css/jquery.ui.min.css', '/css/theme.css', '/css/custom.css'], '/css/min.css'); ?>
 &lt;/head></code></pre>
                         <p>Minifine will now combine and minify the four stylesheet and the resuling HTML will (on production environments) look like:</p>
                         <pre><code>&lt;head>
@@ -102,7 +102,7 @@
 &lt;script src="/js/bootstrap.min.js">&lt;/script>
 &lt;script src="/js/custom.js">&lt;/script></code></pre>
                         <p>To use Minifine to combine and minify these javascript files simply use the following code:</p>
-                        <pre><code>&lt;?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js', 'min.js'); ?></code></pre>
+                        <pre><code>&lt;?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js/min.js'); ?></code></pre>
                         <p>Minifine will now combine and minify the three javascript files and the resuling HTML will (on production environments) look like:</p>
                         <pre><code>&lt;script src="/js/min.js">&lt;/script></code></pre>
                         <p>The <code>Minifine\Minifine::js()</code> method used above accepts three parameters:</p>

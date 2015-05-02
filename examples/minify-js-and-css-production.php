@@ -43,9 +43,9 @@
                         <p>When in development mode the resources will be minified, however unminified versions will be loaded when the page is requested to ease debugging.</p>
                         <p>In the head of this page three stylesheet will be minified and at the bottom of this page three javascript files will be minified:</p>
                         <h2>Stylesheet</h2>
-                        <pre><code>&lt;?= $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css', 'styles.min.css'); ?></code></pre>
+                        <pre><code>&lt;?= $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css/styles.min.css'); ?></code></pre>
                         <h2>Javascript files</h2>
-                        <pre><code>&lt;?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js', 'main.min.js'); ?></code></pre>
+                        <pre><code>&lt;?= $minifier->js(['/js/jquery-1.11.2.min.js', '/js/bootstrap.min.js', '/js/custom.js'], '/js/main.min.js'); ?></code></pre>
                         <p>Check the source of this page to see the rendered HTML.</p>
                     </div>
                 </div>
