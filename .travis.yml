@@ -3,17 +3,15 @@ language: php
 php:
   - 5.5
   - 5.6
-  - hhvm
+  - 7
   - nightly
+  - hhvm
 
 before_script:
-  - composer self-update
-  - composer install
-  - composer require "squizlabs/php_codesniffer=*"
-  - phpenv rehash
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction
 
 script:
-  - phpcs --standard=psr2 src/
   - phpunit --configuration phpunit.xml.dist --coverage-text --coverage-clover=coverage.clover
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
