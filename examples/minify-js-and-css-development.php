@@ -41,7 +41,7 @@
                         <h1>Minify JS and Css (development)</h1>
                         <p>This is an example of how Minifine would run when in a development environment.</p>
                         <p>When in development mode the resources will be minified, however unminified versions will be loaded when the page is requested to ease debugging.</p>
-                        <p>In the head of this page three stylesheet will be minified and at the bottom of this page three javascript files will be minified:</p>
+                        <p>In the head of this page two stylesheet will be minified and at the bottom of this page three javascript files will be minified:</p>
                         <h2>Stylesheet</h2>
                         <pre><code>&lt;?= $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css/styles.min.css'); ?></code></pre>
                         <h2>Javascript files</h2>
