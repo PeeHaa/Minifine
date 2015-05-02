@@ -99,8 +99,6 @@ class Minifine
      *
      * @param string                      $type     The type of minifier to append
      * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
-     *
-     * @throws \Minifine\InvalidTypeException When trying to append an invalid type
      */
     private function append($type, Minifier $minifier)
     {
@@ -112,9 +110,6 @@ class Minifine
             case 'css':
                 $this->cssMinifiers[] = $minifier;
                 break;
-
-            default:
-                throw new InvalidTypeException('Can not append minifier of type `' . $type . '`.');
         }
     }
 
@@ -123,8 +118,6 @@ class Minifine
      *
      * @param string                      $type     The type of minifier to append
      * @param \Minifine\Minifier\Minifier $minifier Instance of a minifier
-     *
-     * @throws \Minifine\InvalidTypeException When trying to prepend an invalid type
      */
     private function prepend($type, Minifier $minifier)
     {
@@ -136,10 +129,6 @@ class Minifine
             case 'css':
                 array_unshift($this->cssMinifiers, $minifier);
                 break;
-
-
-            default:
-                throw new InvalidTypeException('Can not prepend minifier of type `' . $type . '`.');
         }
     }
 
