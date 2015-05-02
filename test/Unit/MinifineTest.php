@@ -4,8 +4,6 @@ namespace MinifineTest;
 
 use Minifine\Minifine;
 
-//use Minifine\Minifier\Minifier;
-
 class MinifineTest extends \PHPUnit_Framework_TestCase
 {
     public function tearDown()
