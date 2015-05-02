@@ -19,7 +19,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBuildDevelopment()
     {
-        $this->assertInstanceOf('\\Minifine\\Minifine', (new Factory())->build(__DIR__));
+        $this->assertInstanceOf('\\Minifine\\Minifine', (new Factory())->build(TEST_DATA_DIR));
     }
 
     /**
@@ -27,6 +27,6 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBuildProduction()
     {
-        $this->assertInstanceOf('\\Minifine\\Minifine', (new Factory())->build(__DIR__, true));
+        $this->assertInstanceOf('\\Minifine\\Minifine', (new Factory())->build(TEST_DATA_DIR, true));
     }
 }
