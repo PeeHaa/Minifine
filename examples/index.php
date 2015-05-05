@@ -56,9 +56,9 @@
                         <p>To start using using Minifine using the default minifiers simply use the factory to create a new Minifine instance:</p>
                         <code>$minifier = (new \Minifine\Factory())->build(__DIR__, true);</code>
                         <p>To combine and minify for example multiple stylesheet simply run the following code:</p>
-                        <code>&lt;?= echo $minifier->css(['/css/bootstrap.min.css', '/css/custom.css']); ?&gt;</code>
+                        <code>&lt;?= echo $minifier->css(['/css/bootstrap.min.css', '/css/custom.css'], '/css/min.css'); ?&gt;</code>
                         <p>Combining and minifying javascript files works in exactly the same way:</p>
-                        <code>&lt;?= echo $minifier->js(['/js/bootstrap.min.js', '/js/custom.js']); ?&gt;</code>
+                        <code>&lt;?= echo $minifier->js(['/js/bootstrap.min.js', '/js/custom.js'], '/js/min.js'); ?&gt;</code>
                     </div>
                 </div>
             </section>
