@@ -2,7 +2,7 @@
     "name": "peehaa/minifine",
     "description": "Minifier for web resources",
     "keywords": ["minify", "uglify", "js", "css", "html"],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "homepage": "https://github.com/PeeHaa/Minifine",
     "license": "MIT",
     "authors": [
@@ -14,11 +14,11 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": "^7",
         "matthiasmullie/minify": "^1"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.3.*"
+        "phpunit/phpunit": "^4.3"
     },
     "autoload": {
         "psr-4": {"Minifine\\": "src/"}

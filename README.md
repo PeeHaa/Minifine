@@ -7,12 +7,12 @@
 Simply include this library into your projects using composer:
 
     "require": {
-        "peehaa/minifine": "1.0.*"
+        "peehaa/minifine": "^2"
     },
 
 ## Requirements
 
-PHP 5.5+
+PHP 7+
 
 ## Usage
 
